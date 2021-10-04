@@ -13,12 +13,12 @@ import { NotImplementedError } from '../extensions/index.js';
 export default function getEmailDomain(email) {
   let letters = [];
   for (let i = 0; i < email.length; i++) {
-    if (email[i] === '@') {
-      let iSearch = i;
-      for (let i = iSearch; i < email.length - 1; i++) {
-        letters.push(email[i]);
+      if (email[i] === '@') {
+          let iSearch = i;
+          for (let i = iSearch + 1; i < email.length; i++) {
+              letters.push(email[i]);
+          }
       }
-    }
   }
-  return letters.join();
+  return letters.join('');
 }
